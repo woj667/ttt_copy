@@ -1,62 +1,59 @@
 # tictactoe's main program
 
-from classes import *
+from Board  import *
+from Logics import *
+from Player import *
+from Bot    import *
+from gameLib import *
 
 
 def main():
-    # draw game board
+
+    # open game menu
+    #win = GraphWin("Menu", 300, 300)
+    mode = gameMenu()
+
+    # open game board
     win = GraphWin("Tic-Tac-Toe", 300, 300)
-    gameBoard = Board(win)
 
-    # create game logic
-    gameLogics = Logics()
-
-    # possible elements of zList = ['dl','dm','dr','ml','mm','mr','ul','um','ur']
-
-
-    # create Players' instances
-    playerO = Player()
-    playerX = Player()
-
-    pOlist = pXlist = []
-
-    turn = 0
-    gameover = ""
+    #init game
+    gameLogics, gameBoard, playerO, playerX, pOzones, pXzones, turn, zone, gameover = gameStart(win)
 
     # main event loop
     while gameover == "":
 
         turn += 1
 
-        p = win.getMouse()                      # take a point from mouse click
-        zone = gameLogics.getZone(p)            # assign the point to a proper zone
-
-        while zone in gameLogics.listZone():    # ask for a new zone as long it is not clicked
-            p = win.getMouse()
-            zone = gameLogics.getZone(p)
-
-        gameLogics.appendZone(zone)             # append only when zone is clicked first time
-
-        print("turn: ", turn)
-        if not turn % 2:                        # first loop iteration: turn = 0, "O" starst
+        if turn % 2:                                             # first loop iteration: turn = 1, "O" starst
             # player's O turn
+            while zone == "" or zone in gameLogics.listZones():  # ask for a new zone as long it is not clicked
+                p = win.getMouse()
+                zone = gameLogics.getZone(p)
+
             playerO.appendZone(zone)
-            pOlist = playerO.zoneList()
-            print("PlayerO: ", pOlist)
+            pOzones = playerO.listZones()
             gameBoard.drawO(zone)
-            gameBoard.setMsg("Player's X turn")  # after O is drawn, set message
+            gameBoard.setMsg("Player's X turn")                  # after O is drawn, set message
 
         else:
             # player's X turn
+            while zone == "" or zone in gameLogics.listZones():  # ask for a new zone as long it is not clicked
+                if mode == "pvb":
+                    p = Point(randrange(0, 6), randrange(0, 6))
+                elif mode == "pvp":
+                    p = win.getMouse()
+                zone = gameLogics.getZone(p)
+
             playerX.appendZone(zone)
-            pXlist = playerX.zoneList()
-            print("PlayerX: ", pXlist)
+            pXzones = playerX.listZones()
             gameBoard.drawX(zone)
             gameBoard.setMsg("Player's O turn")
 
+        gameLogics.appendZone(zone)                              # append only when zone is clicked first time
+
         # check status
-        if   gameLogics.isWinner(pOlist):     gameover = "Player O wins!"
-        elif gameLogics.isWinner((pXlist)):   gameover = "Player X wins!"
+        if   gameLogics.isWinner(pOzones):    gameover = "Player O wins!"
+        elif gameLogics.isWinner((pXzones)):  gameover = "Player X wins!"
         elif turn == 9:                       gameover = "Draw!"
 
         if gameover != "":  gameBoard.setMsg(gameover)

@@ -4,25 +4,34 @@ from graphics import *
 
 
 class Board:
+
     def __init__(self, win):
+
+        """ win is the GraphWin to display the board.
+            Before using class Board, define it:
+            win = GraphWin("name",width, height)
+            gameBoard = Board(win)"""
 
         self.win = win
 
         # Prepare board
         self.win.setCoords(-1.0, -1.0, 7.0, 7.0)
 
-        self.message = Text(Point(3, -0.5), "O starts!")
-        self.message.draw(self.win)
-
         # draw vertical lines
         Line(Point(2, 0), Point(2, 6)).draw(self.win)
         Line(Point(4, 0), Point(4, 6)).draw(self.win)
 
-        # draworizontal lines
+        # draw horizontal lines
         Line(Point(0, 4), Point(6, 4)).draw(self.win)
         Line(Point(0, 2), Point(6, 2)).draw(self.win)
 
+        # send initial message to user
+        self.message = Text(Point(3, -0.5), "O starts!")
+        self.message.draw(win)
+
     def drawX(self, zone):
+
+        """Draw X in a given zone"""
 
         self.zone = zone
 
@@ -39,8 +48,9 @@ class Board:
         self.line1 = Line(Point(self.x - 0.6, self.y - 0.6), Point(self.x + 0.6, self.y + 0.6)).draw(self.win)
         self.line2 = Line(Point(self.x - 0.6, self.y + 0.6), Point(self.x + 0.6, self.y - 0.6)).draw(self.win)
 
-
     def drawO(self, zone):
+
+        """Draw O in a given zone"""
 
         self.zone = zone
 

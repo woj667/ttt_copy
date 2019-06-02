@@ -1,9 +1,6 @@
 # logics.py
 
-from graphics import *
-
 class Logics:
-
 
     def __init__(self):
         self.zone = ""
@@ -35,15 +32,8 @@ class Logics:
         else:
             return 0
 
-
     def appendZone(self, zone):
         self.zList.append(self.zone)
 
-    def listZone(self):
+    def listZones(self):
         return self.zList
-
-    def zoneFree(self):
-        if self.zone in self.zList:
-            return 0
-        else:
-            return 1
