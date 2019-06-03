@@ -1,67 +1,22 @@
 # tictactoe's main program
 
-from Board  import *
-from Logics import *
-from Player import *
-from Bot    import *
 from gameLib import *
 
-
 def main():
+    scoreList = [0,0,0,0,0]
 
-    # open game menu
-    #win = GraphWin("Menu", 300, 300)
-    mode = gameMenu()
+    buttonPressed = "retry"
+    while buttonPressed == "retry":
 
-    # open game board
-    win = GraphWin("Tic-Tac-Toe", 300, 300)
+        # open game menu
+        mode = gameMenu()
 
-    #init game
-    gameLogics, gameBoard, playerO, playerX, pOzones, pXzones, turn, zone, gameover = gameStart(win)
+        # start game
+        score = gamePlay(mode)
+        scoreList.append(score)
 
-    # main event loop
-    while gameover == "":
-
-        turn += 1
-
-        if turn % 2:                                             # first loop iteration: turn = 1, "O" starst
-            # player's O turn
-            while zone == "" or zone in gameLogics.listZones():  # ask for a new zone as long it is not clicked
-                p = win.getMouse()
-                zone = gameLogics.getZone(p)
-
-            playerO.appendZone(zone)
-            pOzones = playerO.listZones()
-            gameBoard.drawO(zone)
-            gameBoard.setMsg("Player's X turn")                  # after O is drawn, set message
-
-        else:
-            # player's X turn
-            while zone == "" or zone in gameLogics.listZones():  # ask for a new zone as long it is not clicked
-                if mode == "pvb":
-                    p = Point(randrange(0, 6), randrange(0, 6))
-                elif mode == "pvp":
-                    p = win.getMouse()
-                zone = gameLogics.getZone(p)
-
-            playerX.appendZone(zone)
-            pXzones = playerX.listZones()
-            gameBoard.drawX(zone)
-            gameBoard.setMsg("Player's O turn")
-
-        gameLogics.appendZone(zone)                              # append only when zone is clicked first time
-
-        # check status
-        if   gameLogics.isWinner(pOzones):    gameover = "Player O wins!"
-        elif gameLogics.isWinner((pXzones)):  gameover = "Player X wins!"
-        elif turn == 9:                       gameover = "Draw!"
-
-        if gameover != "":  gameBoard.setMsg(gameover)
-
-    win.getMouse()
-    gameBoard.setMsg("Press any key to exit")
-    win.getKey()
-    win.close()
+        # open scoreboard
+        buttonPressed = gameScores(scoreList)
 
 
 if __name__ == "__main__": main()
