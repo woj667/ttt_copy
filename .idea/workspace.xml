@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="547e3976-8b18-47d6-a30e-e71325cff064" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameLib.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameLib.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -18,8 +17,8 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="240">
-                <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+              <first_editor relative-caret-position="300">
+                <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               </first_editor>
               <second_editor />
             </state>
@@ -30,13 +29,13 @@
         <entry file="file://$PROJECT_DIR$/gameLib.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="180">
-                <caret line="178" column="27" lean-forward="true" selection-start-line="178" selection-start-column="27" selection-end-line="178" selection-end-column="27" />
+              <first_editor relative-caret-position="120">
+                <caret line="46" selection-start-line="46" selection-end-line="50" selection-end-column="36" />
                 <folding>
-                  <element signature="e#170#760#0" />
-                  <element signature="e#578#2530#0" />
-                  <element signature="e#1171#2774#0" />
-                  <element signature="e#3056#4620#0" />
+                  <element signature="e#192#783#0" />
+                  <element signature="e#187#210#0" />
+                  <element signature="e#1271#3020#0" />
+                  <element signature="e#4670#4735#0" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -257,6 +256,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="956" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0722193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -424,13 +424,13 @@
     <entry file="file://$PROJECT_DIR$/gameLib.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="180">
-            <caret line="178" column="27" lean-forward="true" selection-start-line="178" selection-start-column="27" selection-end-line="178" selection-end-column="27" />
+          <first_editor relative-caret-position="120">
+            <caret line="46" selection-start-line="46" selection-end-line="50" selection-end-column="36" />
             <folding>
-              <element signature="e#170#760#0" />
-              <element signature="e#578#2530#0" />
-              <element signature="e#1171#2774#0" />
-              <element signature="e#3056#4620#0" />
+              <element signature="e#192#783#0" />
+              <element signature="e#187#210#0" />
+              <element signature="e#1271#3020#0" />
+              <element signature="e#4670#4735#0" />
             </folding>
           </first_editor>
           <second_editor />
@@ -440,8 +440,8 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="240">
-            <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <first_editor relative-caret-position="300">
+            <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           </first_editor>
           <second_editor />
         </state>

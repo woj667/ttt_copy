@@ -7,7 +7,14 @@ from Logics import *
 from Button import *
 from random import randrange
 
-def gameMenu():
+def gameMenu(exchangeList):
+
+    # -- DECODE EXCHANGE LIST: --
+    # mode = exchangeList[0]
+    # lastScore = exchangeList[1]
+    # scoreList = exchangeList[2]
+    # buttonPressed = exchangeList[3]
+
     win = GraphWin("Menu", 300, 300)
     win.setCoords(-1.0, -1.0, 7.0, 7.0)
 
@@ -32,9 +39,16 @@ def gameMenu():
         elif bvb.clicked(p): mode = "bvb"
 
     win.close()
-    return mode
+    exchangeList[0] = mode
+    #return mode
 
-def gamePlay(mode):
+def gamePlay(exchangeList):
+
+    # -- DECODE EXCHANGE LIST: --
+    mode = exchangeList[0]
+    # lastScore = exchangeList[1]
+    # scoreList = exchangeList[2]
+    # buttonPressed = exchangeList[3]]
 
     # open game board
     win = GraphWin("Tic-Tac-Toe", 300, 300)
@@ -72,6 +86,7 @@ def gamePlay(mode):
                     p = win.getMouse()
                 zone = gameLogics.getZone(p)
 
+            update(3)
             playerO.appendZone(zone)
             pOzones = playerO.listZones()
             gameBoard.drawO(zone)
@@ -86,6 +101,7 @@ def gamePlay(mode):
                     p = win.getMouse()
                 zone = gameLogics.getZone(p)
 
+            update(3)
             playerX.appendZone(zone)
             pXzones = playerX.listZones()
             gameBoard.drawX(zone)
@@ -108,9 +124,17 @@ def gamePlay(mode):
 
     win.getMouse()
     win.close()
-    return score
 
-def gameScores(lastScore, scoreList):
+    exchangeList[1] = score
+    #return score
+
+def gameScores(exchangeList):
+
+    # -- DECODE EXCHANGE LIST: --
+    # mode = exchangeList[0]
+    lastScore = exchangeList[1]
+    scoreList = exchangeList[2]
+    # buttonPressed = exchangeList[3]
 
     win = GraphWin("Scoreboard", 300, 300)
     win.setCoords(-1.0, -1.0, 7.0, 7.0)
@@ -172,8 +196,30 @@ def gameScores(lastScore, scoreList):
             buttonPressed = "retry"
 
     win.close()
-    return buttonPressed
+    exchangeList[3] = buttonPressed
+    #return buttonPressed
 
 def fillZeroes(scoreList, zeroes):
     for i in range(5):
         scoreList.append(0)
+
+def initExchangeData():
+
+    # -- DECODE EXCHANGE LIST: --
+    # mode = exchangeList[0]
+    # lastScore = exchangeList[1]
+    # scoreList = exchangeList[2]
+    # buttonPressed = exchangeList[3]
+
+    # init exchange data
+    mode = ""
+    lastScore = 0
+    buttonPressed = "retry"
+    scoreList = []
+
+    # produce empty scoreboard
+    fillZeroes(scoreList, 5)
+
+    exchangeList = [mode, lastScore, scoreList, buttonPressed]
+
+    return exchangeList

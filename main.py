@@ -1,30 +1,34 @@
 # tictactoe's main program
 
 # TO DO:
-# delay after bot's turn
+# --OK-- delay after bot's turn
 # file with constants
-# data exchange between fx via table, not variables
+# --OK-- data exchange between fx via table, not variables
+# change order after each play
 
 from gameLib import *
 
 def main():
 
-    # produce empty scoreboard
-    scoreList = []
-    fillZeroes(scoreList,5)
+    # -- DECODE EXCHANGE LIST: --
+    # mode = exchangeList[0]
+    # lastScore = exchangeList[1]
+    # scoreList = exchangeList[2]
+    # buttonPressed = exchangeList[3]
+
+    exchangeList = initExchangeData()
 
     # main event loop
-    buttonPressed = "retry"
-    while buttonPressed == "retry":
+    while exchangeList[3] == "retry":
 
         # open game menu
-        mode = gameMenu()
+        gameMenu(exchangeList)
 
         # start game
-        lastScore = gamePlay(mode)
+        gamePlay(exchangeList)
 
         # open scoreboard
-        buttonPressed = gameScores(lastScore, scoreList)
+        gameScores(exchangeList)
 
 
 if __name__ == "__main__": main()
