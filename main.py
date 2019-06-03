@@ -1,10 +1,19 @@
 # tictactoe's main program
 
+# TO DO:
+# delay after bot's turn
+# file with constants
+# data exchange between fx via table, not variables
+
 from gameLib import *
 
 def main():
-    scoreList = [0,0,0,0,0]
 
+    # produce empty scoreboard
+    scoreList = []
+    fillZeroes(scoreList,5)
+
+    # main event loop
     buttonPressed = "retry"
     while buttonPressed == "retry":
 
@@ -12,11 +21,10 @@ def main():
         mode = gameMenu()
 
         # start game
-        score = gamePlay(mode)
-        scoreList.append(score)
+        lastScore = gamePlay(mode)
 
         # open scoreboard
-        buttonPressed = gameScores(scoreList)
+        buttonPressed = gameScores(lastScore, scoreList)
 
 
 if __name__ == "__main__": main()
