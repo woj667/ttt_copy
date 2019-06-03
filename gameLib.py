@@ -46,7 +46,7 @@ def gamePlay(exchangeList):
 
     # -- DECODE EXCHANGE LIST: --
     mode = exchangeList[0]
-    # lastScore = exchangeList[1]
+    lastScore = exchangeList[1]
     # scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]]
 
@@ -66,8 +66,13 @@ def gamePlay(exchangeList):
     # possible elements of zoneList = ['dl', 'dm', 'dr', 'ml', 'mm', 'mr', 'ul', 'um', 'ur']
     pOzones = pXzones = []
 
-    # init game
-    turn = 0
+    # init game <-- looser starts
+    turn = randrange(0, 2, 1)           # randomize if first game or draw
+    if   lastScore == 3:    turn = 1
+    elif lastScore == -3:   turn = 0
+
+    print("lastScore: ",lastScore)
+
     zone = ""
     gameover = ""
 

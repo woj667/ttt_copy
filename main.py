@@ -4,11 +4,14 @@
 # --OK-- delay after bot's turn
 # file with constants
 # --OK-- data exchange between fx via table, not variables
-# change order after each play
+# --OK-- change order after each play <-- looser starts
+# draw all in the same window
 
 from gameLib import *
 
 def main():
+
+    exchangeList = initExchangeData()
 
     # -- DECODE EXCHANGE LIST: --
     # mode = exchangeList[0]
@@ -16,7 +19,6 @@ def main():
     # scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
 
-    exchangeList = initExchangeData()
 
     # main event loop
     while exchangeList[3] == "retry":
