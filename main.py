@@ -6,6 +6,8 @@
 # --OK-- data exchange between fx via table, not variables
 # --OK-- change order after each play <-- looser starts
 # draw all in the same window
+# prepare desctiption
+# --OK-- fix BVB draw bug
 
 from gameLib import *
 
