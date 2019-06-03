@@ -1,6 +1,5 @@
 # gameLib.py
 
-from graphics import *
 from Board import *
 from Player import *
 from Logics import *
@@ -67,19 +66,17 @@ def gamePlay(exchangeList):
     pOzones = pXzones = []
 
     # init game <-- looser starts
-    turn = randrange(0, 2, 1)           # randomize if first game or draw
-    if   lastScore == 3:    turn = 1
-    elif lastScore == -3:   turn = 0
-
-    print("lastScore: ",lastScore)
-
     zone = ""
     gameover = ""
+    score = 0  # score of this game
+
+    if   lastScore == 3:    turn = 1
+    elif lastScore == -3:   turn = 0
+    else:                   turn = randrange(0, 2, 1) # randomize if first game or draw
 
     # main event loop
     while gameover == "":
 
-        score = 0     # score of this game
         turn += 1
 
         if turn % 2:  # first loop iteration: turn = 1, "O" starst
@@ -204,10 +201,6 @@ def gameScores(exchangeList):
     exchangeList[3] = buttonPressed
     #return buttonPressed
 
-def fillZeroes(scoreList, zeroes):
-    for i in range(5):
-        scoreList.append(0)
-
 def initExchangeData():
 
     # -- DECODE EXCHANGE LIST: --
@@ -223,8 +216,12 @@ def initExchangeData():
     scoreList = []
 
     # produce empty scoreboard
-    fillZeroes(scoreList, 5)
+    __fillZeroes(scoreList, 5)
 
     exchangeList = [mode, lastScore, scoreList, buttonPressed]
 
     return exchangeList
+
+def __fillZeroes(scoreList, zeroes):
+    for i in range(5):
+        scoreList.append(0)
