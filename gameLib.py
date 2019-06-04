@@ -13,14 +13,18 @@ def gameMenu(exchangeList):
     # lastScore = exchangeList[1]
     # scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
+    win = exchangeList[4]
 
     # display window...
-    win = GraphWin("Menu", 300, 300)
+    #win = GraphWin("Menu", 300, 300)
     win.setCoords(-1.0, -1.0, 7.0, 7.0)
 
     # ...with welcome text
-    Text(Point(3, 5.5), "Choose your oponent:").draw(win)
-    Text(Point(3, 2.75), "or").draw(win)
+    text1 = Text(Point(3, 5.5), "Choose your oponent:")
+    text1.draw(win)
+
+    text2 = Text(Point(3, 2.75), "or")
+    text2.draw(win)
 
     # activate PVP button
     pvp = Button(win, Point(3,4),2,1,"PVP")
@@ -42,9 +46,10 @@ def gameMenu(exchangeList):
         elif pvb.clicked(p): mode = "pvb"
         elif bvb.clicked(p): mode = "bvb"
 
+    __undrawAll([text1, text2, pvp, pvb, bvb])
 
     # close & return
-    win.close()
+    #win.close()
     exchangeList[0] = mode
 
 def gamePlay(exchangeList):
@@ -53,10 +58,11 @@ def gamePlay(exchangeList):
     mode = exchangeList[0]
     lastScore = exchangeList[1]
     # scoreList = exchangeList[2]
-    # buttonPressed = exchangeList[3]]
+    # buttonPressed = exchangeList[3]
+    win = exchangeList[4]
 
     # display board
-    win = GraphWin("Tic-Tac-Toe", 300, 300)
+    #win = GraphWin("Tic-Tac-Toe", 300, 300)
     gameBoard = Board(win)
 
     # create logics
@@ -124,7 +130,8 @@ def gamePlay(exchangeList):
         if gameover != "":  gameBoard.setMsg(gameover)
 
     win.getMouse()
-    win.close()
+    gameBoard.undraw()
+    #win.close()
 
     exchangeList[1] = score
     #return score
@@ -136,9 +143,10 @@ def gameScores(exchangeList):
     lastScore = exchangeList[1]
     scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
+    win = exchangeList[4]
 
     # display scoreboard
-    win = GraphWin("Scoreboard", 300, 300)
+    #win = GraphWin("Scoreboard", 300, 300)
     win.setCoords(-1.0, -1.0, 7.0, 7.0)
 
     # initial scores
@@ -170,16 +178,22 @@ def gameScores(exchangeList):
             sumPlayerX += score
 
     # draw labels
-    Text(Point(1,5), "PlayerO").draw(win)
-    Text(Point(1,4.5), "PlayerX").draw(win)
+    text1 = Text(Point(1,5), "PlayerO")
+    text1.draw(win)
+    text2 = Text(Point(1,4.5), "PlayerX")
+    text2.draw(win)
 
     # draw list of last 5 scores
-    Text(Point(3,5),str(scoresPlayerO)).draw(win)
-    Text(Point(3,4.5),str(scoresPlayerX)).draw(win)
+    text3 = Text(Point(3,5),str(scoresPlayerO))
+    text3.draw(win)
+    text4 = Text(Point(3,4.5),str(scoresPlayerX))
+    text4.draw(win)
 
     # draw summary
-    Text(Point(5,5),str(sumPlayerO)).draw(win)
-    Text(Point(5,4.5), str(sumPlayerX)).draw(win)
+    text5 = Text(Point(5,5),str(sumPlayerO))
+    text5.draw(win)
+    text6 = Text(Point(5,4.5), str(sumPlayerX))
+    text6.draw(win)
 
     # draw system buttons
     quit = Button(win,Point(1.5,0.5),2,1,"quit")
@@ -198,8 +212,10 @@ def gameScores(exchangeList):
         elif retry.clicked(p):
             buttonPressed = "retry"
 
-    win.close()
+    __undrawAll([text1, text2, text3, text4, text5, text6, quit, retry])
+
     exchangeList[3] = buttonPressed
+    #win.close()
     #return buttonPressed
 
 def initExchangeData():
@@ -209,20 +225,26 @@ def initExchangeData():
     # lastScore = exchangeList[1]
     # scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
+    # win = exchangeList[4]
 
     # init exchange data
     mode = ""
     lastScore = 0
-    buttonPressed = "retry"
     scoreList = []
+    buttonPressed = "retry"
+    win = GraphWin("Tic-Tac-Toe", 300, 300)
 
     # produce empty scoreboard
     __fillZeroes(scoreList, 5)
 
-    exchangeList = [mode, lastScore, scoreList, buttonPressed]
+    exchangeList = [mode, lastScore, scoreList, buttonPressed, win]
 
     return exchangeList
 
 def __fillZeroes(scoreList, zeroes):
-    for i in range(5):
+    for i in range(zeroes):
         scoreList.append(0)
+
+def __undrawAll(objectList):
+    for object in objectList:
+        object.undraw()

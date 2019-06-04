@@ -49,4 +49,9 @@ class Button:
         "Returns the label string of this button"
         return self.label.getText()
 
+    def undraw(self):
+        self.rect.undraw()
+        self.label.undraw()
+        self.deactivate()
+
 

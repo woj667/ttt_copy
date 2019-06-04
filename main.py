@@ -5,7 +5,7 @@
 # file with constants
 # --OK-- data exchange between fx via table, not variables
 # --OK-- change order after each play <-- looser starts
-# draw all in the same window
+# --OK -- draw all in the same window
 # prepare desctiption
 # --OK-- fix BVB draw bug
 
@@ -20,6 +20,7 @@ def main():
     # lastScore = exchangeList[1]
     # scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
+    # win = exchangeList[4]
 
 
     # main event loop
@@ -34,5 +35,6 @@ def main():
         # open scoreboard
         gameScores(exchangeList)
 
+    exchangeList[4].close()
 
 if __name__ == "__main__": main()
