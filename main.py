@@ -8,6 +8,7 @@
 # --OK -- draw all in the same window
 # prepare desctiption
 # --OK-- fix BVB draw bug
+# move every graphic object to window.py
 
 from gameLib import *
 
@@ -19,12 +20,12 @@ def main():
     # mode = exchangeList[0]
     # lastScore = exchangeList[1]
     # scoreList = exchangeList[2]
-    # buttonPressed = exchangeList[3]
-    # win = exchangeList[4]
+    buttonPressed = exchangeList[3]
+    win = exchangeList[4]
 
 
     # main event loop
-    while exchangeList[3] == "retry":
+    while buttonPressed == "retry":
 
         # open game menu
         gameMenu(exchangeList)
@@ -35,6 +36,9 @@ def main():
         # open scoreboard
         gameScores(exchangeList)
 
-    exchangeList[4].close()
+        # update button status
+        buttonPressed = exchangeList[3]
+
+    win.close()
 
 if __name__ == "__main__": main()

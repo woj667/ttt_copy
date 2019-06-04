@@ -1,6 +1,6 @@
 # gameLib.py
 
-from Board import *
+from window import *
 from Player import *
 from Logics import *
 from Button import *
@@ -16,40 +16,16 @@ def gameMenu(exchangeList):
     win = exchangeList[4]
 
     # display window...
-    #win = GraphWin("Menu", 300, 300)
-    win.setCoords(-1.0, -1.0, 7.0, 7.0)
+    menu = Menu()
+    menu.draw(win)
 
-    # ...with welcome text
-    text1 = Text(Point(3, 5.5), "Choose your oponent:")
-    text1.draw(win)
+    # ... and wait for button pess
+    mode = menu.getMode()
 
-    text2 = Text(Point(3, 2.75), "or")
-    text2.draw(win)
+    # undraw after all
+    menu.undraw()
 
-    # activate PVP button
-    pvp = Button(win, Point(3,4),2,1,"PVP")
-    pvp.activate()
-
-    # activate PVB button
-    pvb = Button(win, Point(3,1.5), 2,1,"PVB")
-    pvb.activate()
-
-    # activate BVB button
-    bvb = Button(win, Point(3,0), 2,1,"BVB")
-    bvb.activate()
-
-    # wait for button press
-    mode = ""
-    while mode == "":
-        p = win.getMouse()
-        if pvp.clicked(p):   mode = "pvp"
-        elif pvb.clicked(p): mode = "pvb"
-        elif bvb.clicked(p): mode = "bvb"
-
-    __undrawAll([text1, text2, pvp, pvb, bvb])
-
-    # close & return
-    #win.close()
+    # return game mode
     exchangeList[0] = mode
 
 def gamePlay(exchangeList):
@@ -62,8 +38,8 @@ def gamePlay(exchangeList):
     win = exchangeList[4]
 
     # display board
-    #win = GraphWin("Tic-Tac-Toe", 300, 300)
-    gameBoard = Board(win)
+    gameBoard = Board()
+    gameBoard.draw(win)
 
     # create logics
     gameLogics = Logics()
@@ -71,6 +47,10 @@ def gamePlay(exchangeList):
     # create Players' instances
     playerO = Player()
     playerX = Player()
+
+    # create faceplates
+    circle = FigureO(win)
+    cross = FigureX(win)
 
     # initial game settings
     zone = ""               # zone belongs to ['dl', 'dm', 'dr', 'ml', 'mm', 'mr', 'ul', 'um', 'ur']
@@ -97,7 +77,8 @@ def gamePlay(exchangeList):
 
             update(3)                           # time delay
             playerO.appendZone(zone)
-            gameBoard.drawO(zone)
+            #gameBoard.drawO(zone)
+            circle.draw(zone)
             gameBoard.setMsg("Player's X turn")  # after O is drawn, set message
 
         else:
@@ -111,7 +92,8 @@ def gamePlay(exchangeList):
 
             update(3)
             playerX.appendZone(zone)
-            gameBoard.drawX(zone)
+            #gameBoard.drawX(zone)
+            cross.draw(zone)
             gameBoard.setMsg("Player's O turn")
 
         gameLogics.appendZone(zone)  # append only when zone is clicked first time
@@ -131,6 +113,8 @@ def gamePlay(exchangeList):
 
     win.getMouse()
     gameBoard.undraw()
+    circle.undraw()
+    cross.undraw()
     #win.close()
 
     exchangeList[1] = score
@@ -145,76 +129,17 @@ def gameScores(exchangeList):
     # buttonPressed = exchangeList[3]
     win = exchangeList[4]
 
-    # display scoreboard
-    #win = GraphWin("Scoreboard", 300, 300)
-    win.setCoords(-1.0, -1.0, 7.0, 7.0)
 
-    # initial scores
-    scoresPlayerO = []
-    scoresPlayerX = []
-    sumPlayerO = 0
-    sumPlayerX = 0
+    scoreboard = Scoreboard()
+    scoreboard.appendScore(scoreList, lastScore)
+    scoreboard.draw(win)
+    buttonPressed =  scoreboard.getMode()
 
-    # shift scores <<
-    for i in range(4):
-        scoreList[i] = scoreList[i+1]
-    scoreList[4] = lastScore
-
-    # build score table for each player
-    for score in scoreList:
-
-        if score == 3:
-            scoresPlayerO.append(3)
-            sumPlayerO += 3
-            scoresPlayerX.append(0)
-        elif score == -3:
-            scoresPlayerO.append(0)
-            scoresPlayerX.append(3)
-            sumPlayerX += 3
-        elif score in [0,1]:
-            scoresPlayerO.append(score)
-            sumPlayerO += score
-            scoresPlayerX.append(score)
-            sumPlayerX += score
-
-    # draw labels
-    text1 = Text(Point(1,5), "PlayerO")
-    text1.draw(win)
-    text2 = Text(Point(1,4.5), "PlayerX")
-    text2.draw(win)
-
-    # draw list of last 5 scores
-    text3 = Text(Point(3,5),str(scoresPlayerO))
-    text3.draw(win)
-    text4 = Text(Point(3,4.5),str(scoresPlayerX))
-    text4.draw(win)
-
-    # draw summary
-    text5 = Text(Point(5,5),str(sumPlayerO))
-    text5.draw(win)
-    text6 = Text(Point(5,4.5), str(sumPlayerX))
-    text6.draw(win)
-
-    # draw system buttons
-    quit = Button(win,Point(1.5,0.5),2,1,"quit")
-    quit.activate()
-
-    retry = Button(win, Point(4.5,0.5), 2, 1, "retry")
-    retry.activate()
-
-    # wait for action
-    buttonPressed = ""
-    while buttonPressed == "":
-        p = win.getMouse()
-
-        if quit.clicked(p):
-            buttonPressed = "close"
-        elif retry.clicked(p):
-            buttonPressed = "retry"
-
-    __undrawAll([text1, text2, text3, text4, text5, text6, quit, retry])
 
     exchangeList[3] = buttonPressed
+
+    scoreboard.undraw()
+
     #win.close()
     #return buttonPressed
 
