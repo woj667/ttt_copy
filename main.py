@@ -8,12 +8,14 @@
 # --OK -- draw all in the same window
 # prepare desctiption
 # --OK-- fix BVB draw bug
-# move every graphic object to window.py
+# --OK-- move every graphic object to window.py
+# refine gamePlay
 
 from gameLib import *
 
 def main():
 
+    # declare initial conditions
     exchangeList = initExchangeData()
 
     # -- DECODE EXCHANGE LIST: --
@@ -22,7 +24,7 @@ def main():
     # scoreList = exchangeList[2]
     buttonPressed = exchangeList[3]
     win = exchangeList[4]
-
+    # ---------------------------
 
     # main event loop
     while buttonPressed == "retry":
@@ -33,7 +35,7 @@ def main():
         # start game
         gamePlay(exchangeList)
 
-        # open scoreboard
+        # print scoreboard
         gameScores(exchangeList)
 
         # update button status

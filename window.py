@@ -1,7 +1,7 @@
 # window.py
 
-from graphics import *
 from Button import *
+
 
 class Board:
 

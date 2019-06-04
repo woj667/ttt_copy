@@ -14,6 +14,7 @@ def gameMenu(exchangeList):
     # scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
     win = exchangeList[4]
+    # ---------------------------
 
     # display window...
     menu = Menu()
@@ -36,6 +37,7 @@ def gamePlay(exchangeList):
     # scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
     win = exchangeList[4]
+    # ---------------------------
 
     # display board
     gameBoard = Board()
@@ -112,13 +114,12 @@ def gamePlay(exchangeList):
         if gameover != "":  gameBoard.setMsg(gameover)
 
     win.getMouse()
-    gameBoard.undraw()
-    circle.undraw()
-    cross.undraw()
-    #win.close()
+    __undraw([gameBoard, circle, cross])
+    #gameBoard.undraw()
+    #circle.undraw()         # undraw every circle>>>
+    #cross.undraw()          # ...and every cross
 
     exchangeList[1] = score
-    #return score
 
 def gameScores(exchangeList):
 
@@ -128,20 +129,24 @@ def gameScores(exchangeList):
     scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
     win = exchangeList[4]
+    # ---------------------------
 
-
+    # create scoreboard
     scoreboard = Scoreboard()
+
+    # append lastScore to the scoreList
     scoreboard.appendScore(scoreList, lastScore)
+
+    # draw obtained scores
     scoreboard.draw(win)
-    buttonPressed =  scoreboard.getMode()
 
+    # wait for action
+    buttonPressed = scoreboard.getMode()
 
+    # update button status
     exchangeList[3] = buttonPressed
 
     scoreboard.undraw()
-
-    #win.close()
-    #return buttonPressed
 
 def initExchangeData():
 
@@ -151,6 +156,7 @@ def initExchangeData():
     # scoreList = exchangeList[2]
     # buttonPressed = exchangeList[3]
     # win = exchangeList[4]
+    # ---------------------------
 
     # init exchange data
     mode = ""
@@ -170,6 +176,6 @@ def __fillZeroes(scoreList, zeroes):
     for i in range(zeroes):
         scoreList.append(0)
 
-def __undrawAll(objectList):
+def __undraw(objectList):
     for object in objectList:
         object.undraw()
