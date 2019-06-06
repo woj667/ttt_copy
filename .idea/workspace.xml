@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="547e3976-8b18-47d6-a30e-e71325cff064" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logics.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gameLib.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameLib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/window.py" beforeDir="false" afterPath="$PROJECT_DIR$/window.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,31 +16,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="405">
-                <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gameLib.py">
-          <provider selected="true" editor-type-id="live-pycharm">
-            <state>
-              <first_editor relative-caret-position="559">
-                <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+              <first_editor relative-caret-position="144">
+                <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
                 <folding>
-                  <element signature="e#14#34#0" expanded="true" />
-                  <element signature="e#160#1224#0" />
-                  <element signature="e#1989#3642#0" />
-                  <element signature="e#3535#4118#0" />
-                  <element signature="e#5619#6040#0" />
-                  <element signature="e#6083#6134#0" />
+                  <element signature="n#!!doc" />
                 </folding>
               </first_editor>
               <second_editor relative-caret-position="-105" />
@@ -47,32 +32,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/window.py">
+        <entry file="file://$PROJECT_DIR$/gameLib.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="105">
-                <caret line="60" column="27" lean-forward="true" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+              <first_editor relative-caret-position="195">
+                <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
                 <folding>
-                  <element signature="e#76#1083#0" />
-                  <element signature="e#105#316#0" />
-                  <element signature="e#352#931#0" />
-                  <element signature="e#968#993#0" />
-                  <element signature="e#1025#1083#0" />
-                  <element signature="e#1105#1586#0" />
-                  <element signature="e#1608#1966#0" />
-                  <element signature="e#1985#3453#0" />
-                  <element signature="e#2014#2225#0" />
-                  <element signature="e#2261#3038#0" />
-                  <element signature="e#3070#3128#0" />
-                  <element signature="e#3478#6010#0" />
-                  <element signature="e#3516#3731#0" />
-                  <element signature="e#3899#4873#0" />
-                  <element signature="e#4029#4691#0" />
-                  <element signature="e#4170#4682#0" />
-                  <element signature="e#3761#3819#0" />
-                  <element signature="e#5723#6037#0" />
-                  <element signature="e#3480#3877#0" />
-                  <element signature="e#3895#4067#0" />
+                  <element signature="e#14#34#0" expanded="true" />
+                  <element signature="e#160#1224#0" />
+                  <element signature="e#671#2895#0" />
+                  <element signature="e#3535#4118#0" />
+                  <element signature="e#5619#6040#0" />
+                  <element signature="e#6083#6134#0" />
+                  <element signature="e#4798#4847#0" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -81,15 +53,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Player.py">
+        <entry file="file://$PROJECT_DIR$/window.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="165">
-                <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+              <first_editor relative-caret-position="270">
+                <caret line="260" column="33" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="33" />
                 <folding>
-                  <element signature="e#115#840#0" />
-                  <element signature="e#883#931#0" />
-                  <element signature="e#966#983#0" />
+                  <element signature="e#52#1520#0" />
+                  <element signature="e#81#292#0" />
+                  <element signature="e#328#1105#0" />
+                  <element signature="e#1137#1195#0" />
+                  <element signature="e#76#1083#0" />
+                  <element signature="e#105#316#0" />
+                  <element signature="e#352#931#0" />
+                  <element signature="e#968#993#0" />
+                  <element signature="e#1025#1083#0" />
+                  <element signature="e#2588#5183#0" />
+                  <element signature="e#2616#2973#0" />
+                  <element signature="e#3009#4044#0" />
+                  <element signature="e#4104#4757#0" />
+                  <element signature="e#4245#4757#0" />
+                  <element signature="e#4789#4847#0" />
+                  <element signature="e#4881#5183#0" />
+                  <element signature="e#1105#1586#0" />
+                  <element signature="e#1608#1966#0" />
+                  <element signature="e#3480#3877#0" />
+                  <element signature="e#3895#4067#0" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -101,19 +90,22 @@
         <entry file="file://$PROJECT_DIR$/Logics.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="150">
-                <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+              <first_editor relative-caret-position="390">
+                <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
                 <folding>
-                  <element signature="e#135#860#0" />
+                  <element signature="e#13#41#0" expanded="true" />
                   <element signature="e#237#404#0" />
                   <element signature="e#452#619#0" />
                   <element signature="e#667#834#0" />
                   <element signature="e#900#1371#0" />
-                  <element signature="e#1413#1441#0" />
-                  <element signature="e#1476#1493#0" />
+                  <element signature="e#1546#1944#0" />
+                  <element signature="e#2025#2040#0" />
+                  <element signature="e#2077#2802#0" />
+                  <element signature="e#2845#2893#0" />
+                  <element signature="e#2928#2945#0" />
                 </folding>
               </first_editor>
-              <second_editor />
+              <second_editor relative-caret-position="-45" />
             </state>
           </provider>
         </entry>
@@ -153,13 +145,13 @@
         <option value="$PROJECT_DIR$/logics.py" />
         <option value="$PROJECT_DIR$/classes.py" />
         <option value="$PROJECT_DIR$/Bot.py" />
-        <option value="$PROJECT_DIR$/Logics.py" />
         <option value="$PROJECT_DIR$/Player.py" />
         <option value="$PROJECT_DIR$/graphics.py" />
         <option value="$PROJECT_DIR$/Button.py" />
         <option value="$PROJECT_DIR$/Board.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/window.py" />
+        <option value="$PROJECT_DIR$/Logics.py" />
         <option value="$PROJECT_DIR$/gameLib.py" />
       </list>
     </option>
@@ -192,7 +184,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../py/tictactoe.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="ics" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -249,7 +241,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="956" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0722193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -262,7 +253,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3296837" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.270073" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.64720196" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3296837" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -335,16 +326,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state>
-          <first_editor relative-caret-position="405">
-            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Button.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
@@ -364,8 +345,8 @@
     <entry file="file://$PROJECT_DIR$/Player.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="165">
-            <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <first_editor relative-caret-position="120">
+            <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             <folding>
               <element signature="e#115#840#0" />
               <element signature="e#883#931#0" />
@@ -376,49 +357,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Logics.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state>
-          <first_editor relative-caret-position="150">
-            <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-            <folding>
-              <element signature="e#135#860#0" />
-              <element signature="e#237#404#0" />
-              <element signature="e#452#619#0" />
-              <element signature="e#667#834#0" />
-              <element signature="e#900#1371#0" />
-              <element signature="e#1413#1441#0" />
-              <element signature="e#1476#1493#0" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/window.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="105">
-            <caret line="60" column="27" lean-forward="true" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+          <first_editor relative-caret-position="270">
+            <caret line="260" column="33" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="33" />
             <folding>
+              <element signature="e#52#1520#0" />
+              <element signature="e#81#292#0" />
+              <element signature="e#328#1105#0" />
+              <element signature="e#1137#1195#0" />
               <element signature="e#76#1083#0" />
               <element signature="e#105#316#0" />
               <element signature="e#352#931#0" />
               <element signature="e#968#993#0" />
               <element signature="e#1025#1083#0" />
+              <element signature="e#2588#5183#0" />
+              <element signature="e#2616#2973#0" />
+              <element signature="e#3009#4044#0" />
+              <element signature="e#4104#4757#0" />
+              <element signature="e#4245#4757#0" />
+              <element signature="e#4789#4847#0" />
+              <element signature="e#4881#5183#0" />
               <element signature="e#1105#1586#0" />
               <element signature="e#1608#1966#0" />
-              <element signature="e#1985#3453#0" />
-              <element signature="e#2014#2225#0" />
-              <element signature="e#2261#3038#0" />
-              <element signature="e#3070#3128#0" />
-              <element signature="e#3478#6010#0" />
-              <element signature="e#3516#3731#0" />
-              <element signature="e#3899#4873#0" />
-              <element signature="e#4029#4691#0" />
-              <element signature="e#4170#4682#0" />
-              <element signature="e#3761#3819#0" />
-              <element signature="e#5723#6037#0" />
               <element signature="e#3480#3877#0" />
               <element signature="e#3895#4067#0" />
             </folding>
@@ -427,18 +389,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Logics.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor relative-caret-position="390">
+            <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            <folding>
+              <element signature="e#13#41#0" expanded="true" />
+              <element signature="e#237#404#0" />
+              <element signature="e#452#619#0" />
+              <element signature="e#667#834#0" />
+              <element signature="e#900#1371#0" />
+              <element signature="e#1546#1944#0" />
+              <element signature="e#2025#2040#0" />
+              <element signature="e#2077#2802#0" />
+              <element signature="e#2845#2893#0" />
+              <element signature="e#2928#2945#0" />
+            </folding>
+          </first_editor>
+          <second_editor relative-caret-position="-45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gameLib.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="559">
-            <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+          <first_editor relative-caret-position="195">
+            <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
             <folding>
               <element signature="e#14#34#0" expanded="true" />
               <element signature="e#160#1224#0" />
-              <element signature="e#1989#3642#0" />
+              <element signature="e#671#2895#0" />
               <element signature="e#3535#4118#0" />
               <element signature="e#5619#6040#0" />
               <element signature="e#6083#6134#0" />
+              <element signature="e#4798#4847#0" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor relative-caret-position="144">
+            <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+            <folding>
+              <element signature="n#!!doc" />
             </folding>
           </first_editor>
           <second_editor relative-caret-position="-105" />

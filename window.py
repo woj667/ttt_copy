@@ -2,82 +2,6 @@
 
 from Button import *
 
-
-class Board:
-
-    def __init__(self):
-
-        """ win is the GraphWin to display the board.
-            Before using class Board, define it:
-            win = GraphWin("name",width, height)
-            gameBoard = Board(win)"""
-
-        self.objectList = []
-
-    def draw(self, win):
-
-        self.win = win
-        self.win.setCoords(-1.0, -1.0, 7.0, 7.0)
-
-        # draw vertical lines
-        line1 = Line(Point(2, 0), Point(2, 6)).draw(self.win)
-        line2 = Line(Point(4, 0), Point(4, 6)).draw(self.win)
-
-        # draw horizontal lines
-        line3 = Line(Point(0, 4), Point(6, 4)).draw(self.win)
-        line4 = Line(Point(0, 2), Point(6, 2)).draw(self.win)
-
-        # send initial message to user
-        self.message = Text(Point(3, -0.5), "O starts!")
-        self.message.draw(self.win)
-
-        self.objectList += [self.message, line1, line2, line3, line4]
-
-    def setMsg(self, msg):
-        self.message.setText(msg)
-
-    def undraw(self):
-        for object in self.objectList:
-            object.undraw()
-
-class FigureX:
-
-    def __init__(self, win):
-        self.win = win
-        self.objectList = []
-
-    def draw(self, zone):
-
-        """Draw X in a given zone"""
-        x, y = midpoint(zone)
-
-        lineX1 = Line(Point(x - 0.6, y - 0.6), Point(x + 0.6, y + 0.6)).draw(self.win)
-        lineX2 = Line(Point(x - 0.6, y + 0.6), Point(x + 0.6, y - 0.6)).draw(self.win)
-
-        self.objectList += [lineX1, lineX2]
-
-    def undraw(self):
-        for object in self.objectList:
-            object.undraw()
-
-class FigureO:
-
-    def __init__(self, win):
-        self.win = win
-        self.objectList = []
-
-    def draw(self, zone):
-
-        """Draw O in a given zone"""
-        x, y = midpoint(zone)
-
-        circle = Circle(Point(x, y), 0.7).draw(self.win)
-        self.objectList.append(circle)
-
-    def undraw(self):
-        for object in self.objectList:
-            object.undraw()
-
 class Menu:
 
     def __init__(self):
@@ -135,6 +59,43 @@ class Menu:
                 mode = "bvb"
 
         return mode
+
+class Board:
+
+    def __init__(self):
+
+        """ win is the GraphWin to display the board.
+            Before using class Board, define it:
+            win = GraphWin("name",width, height)
+            gameBoard = Board(win)"""
+
+        self.objectList = []
+
+    def draw(self, win):
+
+        self.win = win
+        self.win.setCoords(-1.0, -1.0, 7.0, 7.0)
+
+        # draw vertical lines
+        line1 = Line(Point(2, 0), Point(2, 6)).draw(self.win)
+        line2 = Line(Point(4, 0), Point(4, 6)).draw(self.win)
+
+        # draw horizontal lines
+        line3 = Line(Point(0, 4), Point(6, 4)).draw(self.win)
+        line4 = Line(Point(0, 2), Point(6, 2)).draw(self.win)
+
+        # send initial message to user
+        self.message = Text(Point(3, -0.5), "O starts!")
+        self.message.draw(self.win)
+
+        self.objectList += [self.message, line1, line2, line3, line4]
+
+    def setMsg(self, msg):
+        self.message.setText(msg)
+
+    def undraw(self):
+        for object in self.objectList:
+            object.undraw()
 
 class Scoreboard:
 
@@ -225,6 +186,44 @@ class Scoreboard:
                 buttonPressed = "retry"
 
         return buttonPressed
+
+class FigureX:
+
+    def __init__(self, win):
+        self.win = win
+        self.objectList = []
+
+    def draw(self, zone):
+
+        """Draw X in a given zone"""
+        x, y = midpoint(zone)
+
+        lineX1 = Line(Point(x - 0.6, y - 0.6), Point(x + 0.6, y + 0.6)).draw(self.win)
+        lineX2 = Line(Point(x - 0.6, y + 0.6), Point(x + 0.6, y - 0.6)).draw(self.win)
+
+        self.objectList += [lineX1, lineX2]
+
+    def undraw(self):
+        for object in self.objectList:
+            object.undraw()
+
+class FigureO:
+
+    def __init__(self, win):
+        self.win = win
+        self.objectList = []
+
+    def draw(self, zone):
+
+        """Draw O in a given zone"""
+        x, y = midpoint(zone)
+
+        circle = Circle(Point(x, y), 0.7).draw(self.win)
+        self.objectList.append(circle)
+
+    def undraw(self):
+        for object in self.objectList:
+            object.undraw()
 
 def midpoint(zone):
 
