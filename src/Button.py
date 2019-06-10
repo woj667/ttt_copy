@@ -1,6 +1,6 @@
 # Button.py
 
-from graphics import *
+from vendor.graphics import *
 
 class Button:
 

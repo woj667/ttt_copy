@@ -12,7 +12,7 @@
 # refine gamePlay
 # push repo to the github
 
-from gameLib import *
+from src.gameLib import *
 
 def main():
 

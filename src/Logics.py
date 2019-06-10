@@ -1,7 +1,7 @@
 # logics.py
 
 from random import randrange
-from graphics import *
+from vendor.graphics import *
 
 class Logics:
 

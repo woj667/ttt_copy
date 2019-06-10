@@ -16,3 +16,5 @@ class Bot:
 
     def zoneList(self):
         return self.zList
+
+# todo FIX TIS SHIT

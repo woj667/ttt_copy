@@ -1,17 +1,54 @@
 # window.py
 
-from Button import *
+from src.Button import *
 
-class Menu:
+class UIComponent:
+    def __init__(self, win):
+        self.objectList = []
+        self.win = win
 
-    def __init__(self):
 
+    def draw(self):
+        for object in self.objectList:
+            object.draw(self.win)
+
+    def undraw(self):
+        for object in self.objectList:
+            object.undraw()
+
+class Menu(UIComponent):
+
+    def __init__(self, win):
+        # super();
+        UIComponent.__init__(self, win)
         """ win is the GraphWin to display the board.
             Before using class Board, define it:
             win = GraphWin("name",width, height)
             gameBoard = Board(win)"""
 
-        self.objectList = []
+        # ...with welcome text
+        text0 = Text(Point(3, 6.25), "MENU")
+        text1 = Text(Point(3, 5.5), "Choose your oponent:")
+        text2 = Text(Point(3, 2.75), "or")
+
+        # activate PVP button
+        self.pvp = Button(self.win, Point(3, 4), 2, 1, "PVP")
+        self.pvp.activate()
+
+        # activate PVB button
+        self.pvb = Button(self.win, Point(3, 1.5), 2, 1, "PVB")
+        self.pvb.activate()
+
+        # activate BVB button
+        bvb = Button(self.win, Point(3, 0), 2, 1, "BVB")
+        bvb.activate()
+
+        self.objectList += [text0, text1, text2, self.pvp, self.pvb, bvb]
+
+    def undraw(self):
+        # UIComponent.undraw(self)
+        for object in self.objectList:
+            object.undraw()
 
     def draw(self, win):
 

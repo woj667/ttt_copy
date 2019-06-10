@@ -1,8 +1,8 @@
 # gameLib.py
 
-from window import Menu, Board, Scoreboard, FigureO, FigureX
-from Logics import Logics, Player
-from graphics import *
+from src.window import Menu, Board, Scoreboard, FigureO, FigureX
+from src.Logics import Logics, Player
+from vendor.graphics import *
 from random import randrange
 
 def gameMenu(exchangeList):
