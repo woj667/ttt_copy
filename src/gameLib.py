@@ -38,6 +38,10 @@ def gamePlay(exchangeList):
     win = exchangeList[4]
     # ---------------------------
 
+    echangeListDict = { "mode": "BVB", "last_score": 2 }
+
+    mode = echangeListDict["mode"]
+
     # display board
     gameBoard = Board()
     gameBoard.draw(win)
