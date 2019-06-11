@@ -10,7 +10,7 @@
 # --OK-- fix BVB draw bug
 # --OK-- move every graphic object to window.py
 # refine gamePlay
-# push repo to the github
+# --OK-- push repo to the github
 
 from gameLib import *
 
