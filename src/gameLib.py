@@ -16,8 +16,8 @@ def gameMenu(exchangeList):
     # ---------------------------
 
     # display window...
-    menu = Menu()
-    menu.draw(win)
+    menu = Menu(win)
+    menu.draw()
 
     # ... and wait for button pess
     mode = menu.getMode()
@@ -38,9 +38,9 @@ def gamePlay(exchangeList):
     win = exchangeList[4]
     # ---------------------------
 
-    echangeListDict = { "mode": "BVB", "last_score": 2 }
+#    echangeListDict = { "mode": "BVB", "last_score": 2 }
 
-    mode = echangeListDict["mode"]
+ #   mode = echangeListDict["mode"]
 
     # display board
     gameBoard = Board()
@@ -87,8 +87,10 @@ def gamePlay(exchangeList):
         else:
             # player's X turn
             while zone in gameLogics.listZones():  # ask for a new zone as long it is not clicked
-                if mode == "pvp":        p = win.getMouse()
-                else:                    p = Point(randrange(0, 6), randrange(0, 6))
+                if mode == "pvp":
+                    p = win.getMouse()
+                else:
+                    p = Point(randrange(0, 6), randrange(0, 6))
                 zone = gameLogics.getZone(p)
 
             update(3)
@@ -119,13 +121,14 @@ def gameScores(exchangeList):
     # ---------------------------
 
     # create scoreboard
-    scoreboard = Scoreboard()
+    scoreboard = Scoreboard(win)
 
     # append lastScore to the scoreList
     scoreboard.appendScore(scoreList, lastScore)
 
     # draw obtained scores
-    scoreboard.draw(win)
+    scoreboard.updateScores()
+    scoreboard.draw()
 
     # wait for action
     buttonPressed = scoreboard.getMode()

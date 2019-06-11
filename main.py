@@ -17,7 +17,7 @@ from src.gameLib import *
 def main():
 
     # declare initial conditions
-    exchangeList = initExchangeData()
+    exchangeList = initExchangeData() # todo exchange data using class not list
 
     # -- DECODE EXCHANGE LIST: --
     # mode = exchangeList[0]

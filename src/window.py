@@ -2,68 +2,35 @@
 
 from src.Button import *
 
+
 class UIComponent:
     def __init__(self, win):
         self.objectList = []
         self.win = win
 
-
     def draw(self):
-        for object in self.objectList:
-            object.draw(self.win)
+        for obj in self.objectList:
+            obj.draw(self.win)
 
     def undraw(self):
-        for object in self.objectList:
-            object.undraw()
+        for obj in self.objectList:
+            obj.undraw()
+
 
 class Menu(UIComponent):
 
     def __init__(self, win):
+
         # super();
         UIComponent.__init__(self, win)
-        """ win is the GraphWin to display the board.
-            Before using class Board, define it:
-            win = GraphWin("name",width, height)
-            gameBoard = Board(win)"""
-
-        # ...with welcome text
-        text0 = Text(Point(3, 6.25), "MENU")
-        text1 = Text(Point(3, 5.5), "Choose your oponent:")
-        text2 = Text(Point(3, 2.75), "or")
-
-        # activate PVP button
-        self.pvp = Button(self.win, Point(3, 4), 2, 1, "PVP")
-        self.pvp.activate()
-
-        # activate PVB button
-        self.pvb = Button(self.win, Point(3, 1.5), 2, 1, "PVB")
-        self.pvb.activate()
-
-        # activate BVB button
-        bvb = Button(self.win, Point(3, 0), 2, 1, "BVB")
-        bvb.activate()
-
-        self.objectList += [text0, text1, text2, self.pvp, self.pvb, bvb]
-
-    def undraw(self):
-        # UIComponent.undraw(self)
-        for object in self.objectList:
-            object.undraw()
-
-    def draw(self, win):
 
         self.win = win
         self.win.setCoords(-1.0, -1.0, 7.0, 7.0)
 
         # ...with welcome text
-        text0 = Text(Point(3, 6.25), "MENU")
-        text0.draw(self.win)
-
-        text1 = Text(Point(3, 5.5), "Choose your oponent:")
-        text1.draw(self.win)
-
-        text2 = Text(Point(3, 2.75), "or")
-        text2.draw(self.win)
+        self.text0 = Text(Point(3, 6.25), "MENU")
+        self.text1 = Text(Point(3, 5.5), "Choose your oponent:")
+        self.text2 = Text(Point(3, 2.75), "or")
 
         # activate PVP button
         self.pvp = Button(self.win, Point(3, 4), 2, 1, "PVP")
@@ -77,11 +44,7 @@ class Menu(UIComponent):
         self.bvb = Button(self.win, Point(3, 0), 2, 1, "BVB")
         self.bvb.activate()
 
-        self.objectList += [text0, text1, text2, self.pvp, self.pvb, self.bvb]
-
-    def undraw(self):
-        for object in self.objectList:
-            object.undraw()
+        self.objectList += [self.text0, self.text1, self.text2, self.pvp, self.pvb, self.bvb]
 
     def getMode(self):
 
@@ -97,7 +60,8 @@ class Menu(UIComponent):
 
         return mode
 
-class Board:
+
+class Board: # todo use UIComponent class
 
     def __init__(self):
 
@@ -134,9 +98,11 @@ class Board:
         for object in self.objectList:
             object.undraw()
 
-class Scoreboard:
+class Scoreboard(UIComponent):
 
-    def __init__(self):
+    def __init__(self, win):
+        # super();
+        UIComponent.__init__(self, win)
         """ win is the GraphWin to display the board.
             Before using class Board, define it:
             win = GraphWin("name",width, height)
@@ -148,34 +114,23 @@ class Scoreboard:
         self.sumPlayerO = 0
         self.sumPlayerX = 0
 
-        self.objectList = []
-
-    def draw(self, win):
-
         self.win = win
         self.win.setCoords(-1.0, -1.0, 7.0, 7.0)
 
         # draw header
         text0 = Text(Point(3, 6.25), "SCOREBOARD")
-        text0.draw(win)
 
         # draw labels
         text1 = Text(Point(1, 5), "PlayerO")
-        text1.draw(win)
         text2 = Text(Point(1, 4.5), "PlayerX")
-        text2.draw(win)
 
         # draw list of last 5 scores
-        text3 = Text(Point(3, 5), str(self.scoresPlayerO))
-        text3.draw(win)
-        text4 = Text(Point(3, 4.5), str(self.scoresPlayerX))
-        text4.draw(win)
+        self.text3 = Text(Point(3, 5), "dummy")
+        self.text4 = Text(Point(3, 4.5), "dummy")
 
         # draw summary
-        text5 = Text(Point(5, 5), str(self.sumPlayerO))
-        text5.draw(win)
-        text6 = Text(Point(5, 4.5), str(self.sumPlayerX))
-        text6.draw(win)
+        self.text5 = Text(Point(5, 5), "dummy")
+        self.text6 = Text(Point(5, 4.5), "dummy")
 
         # draw system buttons
         self.quit = Button(win, Point(1.5, 0.5), 2, 1, "quit")
@@ -184,7 +139,22 @@ class Scoreboard:
         self.retry = Button(win, Point(4.5, 0.5), 2, 1, "retry")
         self.retry.activate()
 
-        self.objectList += [text0,text1, text2, text3, text4, text5, text6, self.quit, self.retry]
+        self.objectList += [text0, text1, text2, self.quit, self.retry]
+
+
+    def updateScores(self):
+
+        # draw list of last 5 scores
+        self.text3.setText(str(self.scoresPlayerO))
+        self.text4.setText(str(self.scoresPlayerX))
+
+        # draw summary
+        self.text5.setText(str(self.sumPlayerO))
+        self.text6.setText(str(self.sumPlayerX))
+
+        self.objectList += [self.text3, self.text4, self.text5, self.text6]
+
+
 
     def appendScore(self, scoreList, lastScore):
 
@@ -207,9 +177,6 @@ class Scoreboard:
                 self.scoresPlayerX.append(score)
                 self.sumPlayerX += score
 
-    def undraw(self):
-        for object in self.objectList:
-            object.undraw()
 
     def getMode(self):
 
