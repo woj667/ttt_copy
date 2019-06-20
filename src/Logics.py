@@ -78,7 +78,7 @@ class Logics:
         elif self.__isWinner(playerX.listZones()):
             gameover = "Player X wins!"
             score = -3
-        elif len(self.zList) == 9:      # each zone occupied
+        elif len(self.zList) == 10:      # each zone occupied
             gameover = "Draw!"
             score = 1
         else:

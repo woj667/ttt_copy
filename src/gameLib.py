@@ -43,8 +43,8 @@ def gamePlay(exchangeList):
  #   mode = echangeListDict["mode"]
 
     # display board
-    gameBoard = Board()
-    gameBoard.draw(win)
+    gameBoard = Board(win)
+    gameBoard.draw()
 
     # create logics
     gameLogics = Logics()

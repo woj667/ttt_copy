@@ -61,52 +61,38 @@ class Menu(UIComponent):
         return mode
 
 
-class Board: # todo use UIComponent class
+class Board(UIComponent):
 
-    def __init__(self):
-
-        """ win is the GraphWin to display the board.
-            Before using class Board, define it:
-            win = GraphWin("name",width, height)
-            gameBoard = Board(win)"""
-
-        self.objectList = []
-
-    def draw(self, win):
+    def __init__(self, win):
+        # super();
+        UIComponent.__init__(self, win)
 
         self.win = win
         self.win.setCoords(-1.0, -1.0, 7.0, 7.0)
 
         # draw vertical lines
-        line1 = Line(Point(2, 0), Point(2, 6)).draw(self.win)
-        line2 = Line(Point(4, 0), Point(4, 6)).draw(self.win)
+        line1 = Line(Point(2, 0), Point(2, 6))
+        line2 = Line(Point(4, 0), Point(4, 6))
 
         # draw horizontal lines
-        line3 = Line(Point(0, 4), Point(6, 4)).draw(self.win)
-        line4 = Line(Point(0, 2), Point(6, 2)).draw(self.win)
+        line3 = Line(Point(0, 4), Point(6, 4))
+        line4 = Line(Point(0, 2), Point(6, 2))
 
         # send initial message to user
         self.message = Text(Point(3, -0.5), "O starts!")
-        self.message.draw(self.win)
+        #self.message.draw(self.win)
 
         self.objectList += [self.message, line1, line2, line3, line4]
 
     def setMsg(self, msg):
         self.message.setText(msg)
 
-    def undraw(self):
-        for object in self.objectList:
-            object.undraw()
 
 class Scoreboard(UIComponent):
 
     def __init__(self, win):
         # super();
         UIComponent.__init__(self, win)
-        """ win is the GraphWin to display the board.
-            Before using class Board, define it:
-            win = GraphWin("name",width, height)
-            gameBoard = Board(win)"""
 
         # initial scores
         self.scoresPlayerO = []
@@ -191,11 +177,11 @@ class Scoreboard(UIComponent):
 
         return buttonPressed
 
-class FigureX:
+class FigureX(UIComponent):
 
     def __init__(self, win):
-        self.win = win
-        self.objectList = []
+        # super();
+        UIComponent.__init__(self, win)
 
     def draw(self, zone):
 
@@ -207,15 +193,12 @@ class FigureX:
 
         self.objectList += [lineX1, lineX2]
 
-    def undraw(self):
-        for object in self.objectList:
-            object.undraw()
 
-class FigureO:
+class FigureO(UIComponent): #todo fix covered draw method
 
     def __init__(self, win):
-        self.win = win
-        self.objectList = []
+        # super();
+        UIComponent.__init__(self, win)
 
     def draw(self, zone):
 
@@ -224,10 +207,6 @@ class FigureO:
 
         circle = Circle(Point(x, y), 0.7).draw(self.win)
         self.objectList.append(circle)
-
-    def undraw(self):
-        for object in self.objectList:
-            object.undraw()
 
 def midpoint(zone):
 
@@ -251,15 +230,3 @@ def midpoint(zone):
         x, y = 5, 5
 
     return x, y
-
-def test():
-    win = GraphWin("class Board test", 300, 300)
-    gameBoard = Board(win)
-
-    for zone in ['ul','mm','dr']:
-        gameBoard.drawX(zone)
-
-    win.getMouse()
-    win.close()
-
-if __name__ == "__main__": test()
