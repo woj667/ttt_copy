@@ -17,10 +17,10 @@ from src.gameLib import *
 def main():
 
     # declare initial conditions
-    exchangeList = initExchangeData() # todo exchange data using class not list
+    exchangeList = exchangeData() # todo exchange data using class not list
 
     # -- DECODE EXCHANGE LIST: --
-    # mode = exchangeList[0]
+    mode = exchangeList.mode()
     # lastScore = exchangeList[1]
     # scoreList = exchangeList[2]
     buttonPressed = exchangeList[3]

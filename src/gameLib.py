@@ -162,10 +162,50 @@ def initExchangeData():
 
     return exchangeList
 
-def __fillZeroes(scoreList, zeroes):
-    for i in range(zeroes):
-        scoreList.append(0)
 
 def __undraw(objectList):
     for object in objectList:
         object.undraw()
+
+class exchangeData:
+
+    def __init__(self):
+        # -- DECODE EXCHANGE LIST: --
+        # mode = exchangeList[0]
+        # lastScore = exchangeList[1]
+        # scoreList = exchangeList[2]
+        # buttonPressed = exchangeList[3]
+        # win = exchangeList[4]
+        # ---------------------------
+
+        # init exchange data
+        self.mode = ""
+        self.lastScore = 0
+        self.scoreList = []
+        self.buttonPressed = "retry"
+        self.win = GraphWin("Tic-Tac-Toe", 300, 300)
+
+        # produce empty scoreboard
+        for i in range(5):
+            self.scoreList.append(0)
+
+    def getMode(self):
+        return self.mode
+
+    def getLastScore(self):
+        return self.lastScore
+
+    def getScoreList(self):
+        return self.scoreList
+
+    def getButtonPressed(self):
+        return self.buttonPressed
+
+    def getWin(self):
+        pass
+
+    def modMode(self, mode):
+        self.mode = mode
+
+    def modLastScore(self, lastScore):
+        self.lastScore = lastScore
